@@ -1,4 +1,4 @@
-# Multilingual Cyberbullying Detection Using Transformer Ensembles and Explainable AI
+# Ensemble Learning in Cyberbullying Detection Using Transformer Models: A Multilingual and Explainable-AI Approach
 
 A multilingual NLP project for detecting and classifying cyberbullying in **English, Bangla, and mixed-language text** using transformer-based models, weighted soft voting, and Explainable AI (XAI).
 
@@ -18,7 +18,7 @@ This project explores whether combining multiple transformer models can improve 
 
 ## Key Features
 
-- **Multilingual classification:** Supports English, Bangla, and mixed-language text.
+- **Multilingual classification:** Supports English, Bangla, and multi-language text.
 - **Nine transformer models:** Evaluates different pretrained architectures for cyberbullying detection.
 - **Weighted soft voting:** Combines class probabilities from multiple models using accuracy-based weights.
 - **Multi-class prediction:** Classifies text into four categories: `Not Bully`, `Religious`, `Sexual`, and `Others`.
@@ -51,23 +51,7 @@ The project follows a pipeline from dataset preparation to model evaluation and 
 
 ### Weighted Soft-Voting Ensemble
 
-Each model produces a probability distribution over the target classes. The distributions are combined using normalized accuracy-based weights.
-
-For model \(m_i\), its weight is defined as:
-
-\[
-w_i=\frac{\operatorname{Accuracy}(m_i)}
-{\sum_{j=1}^{n}\operatorname{Accuracy}(m_j)}
-\]
-
-The ensemble probability for an input \(x\) is:
-
-\[
-P_{\mathrm{ensemble}}(x)
-=\sum_{i=1}^{n} w_i P_i(x)
-\]
-
-The predicted class is the class with the highest aggregated probability.
+Each model produces a probability distribution over the target classes. The distributions are combined using normalized accuracy-based weights. The predicted class is the class with the highest aggregated probability.
 
 This approach gives greater influence to models with higher measured accuracy while retaining information from the other models.
 
@@ -94,8 +78,6 @@ The weighted voting ensemble outperformed the individual models on all three rep
 | Cohen's Kappa | 82.65% | **83.39%** | 82.23% |
 | MCC | 82.66% | **83.41%** | 82.24% |
 | ROC-AUC | 97.95% | **97.33%** | 97.65% |
-
-*Results are reported from the experiments described in the thesis.*
 
 ### Key Findings
 
@@ -136,70 +118,6 @@ Confusion matrices and class-wise classification reports are also used to examin
 
 *The implementation uses PyTorch-based training components; TensorFlow is listed among the project tools.*
 
-## Project Structure
-
-The following is a suggested organization for publishing the project on GitHub. Adjust it to match the files actually included in your repository.
-
-```text
-.
-├── datasets/                 # Dataset files or preparation scripts
-├── models/                   # Fine-tuned model artifacts, if included
-├── notebooks/                # Training and evaluation notebooks
-├── figures/                  # Performance plots and confusion matrices
-├── app.py                    # Streamlit application, if included
-├── requirements.txt          # Python dependencies
-└── README.md
-```
-
-## Getting Started
-
-The exact setup commands depend on the scripts and files included in the repository.
-
-### 1. Clone the Repository
-
-```bash
-git clone <YOUR-REPOSITORY-URL>
-cd <YOUR-REPOSITORY-NAME>
-```
-
-### 2. Create a Virtual Environment
-
-```bash
-python -m venv .venv
-```
-
-Activate it:
-
-**Windows**
-```bash
-.venv\Scripts\activate
-```
-
-**Linux/macOS**
-```bash
-source .venv/bin/activate
-```
-
-### 3. Install Dependencies
-
-If a `requirements.txt` file is available:
-
-```bash
-pip install -r requirements.txt
-```
-
-Otherwise, install the dependencies specified by the project's training and application scripts.
-
-### 4. Run the Application
-
-If the repository includes `app.py` and its required model artifacts:
-
-```bash
-streamlit run app.py
-```
-
-Dataset preparation, model training, and inference commands should be added here once the corresponding scripts and their arguments are confirmed.
-
 ## Limitations and Future Work
 
 Potential directions for further development include:
@@ -210,10 +128,7 @@ Potential directions for further development include:
 - Evaluating performance on independent datasets and real-world social media content.
 - Exploring more efficient models for deployment under limited computational resources.
 - Improving the interpretability and reliability of explanations.
-
-## Responsible Use
-
-Automated cyberbullying detection can produce false positives and false negatives. Predictions should not be treated as definitive judgments about a person or message. Human review, careful handling of sensitive text, and consideration of cultural and linguistic context are important before taking action based on a model's output.
+- Expand methodology by implementing reinforcement learning and customizing model architectures.
 
 ## Acknowledgments
 
@@ -225,7 +140,7 @@ If you use or refer to this work, please cite the thesis:
 
 **Title:** *Ensemble Learning in Cyberbullying Detection Using Transformer Models: A Multilingual and Explainable-AI Approach*
 
-**Author:** Faria Islam
+**Author:** Faria Islam; Ahmad Abdullah; Md Zakaria Hossen Emon; Fernaz Narin Nur
 
 **Institution:** Military Institute of Science and Technology (MIST), Dhaka, Bangladesh
 
